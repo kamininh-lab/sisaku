@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダム抽選ツール</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #a855f7;
+            --secondary: #ec4899;
+            --bg-color: #0f172a;
+            --surface: rgba(30, 41, 59, 0.7);
+            --text: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #1e1b4b);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: var(--surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        textarea, input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(0,0,0,0.25);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        textarea {
+            height: 160px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        textarea::placeholder {
+            color: #475569;
+        }
+
+        textarea:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+            background: rgba(0,0,0,0.4);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.6);
+        }
+
+        button:active {
+            transform: translateY(1px) scale(0.98);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #result-container {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+            animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        #result-container h2 {
+            color: #fbbf24;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+        }
+
+        #result-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        #result-list li {
+            background: linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--primary);
+            animation: slideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Confetti styling */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            z-index: 1000;
+            animation: fall linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎉 ランダム抽選ツール</h1>
+        
+        <div class="input-group">
+            <label for="names">参加者の名前（改行で区切る）</label>
+            <textarea id="names" placeholder="山田太郎&#10;鈴木花子&#10;佐藤次郎"></textarea>
+        </div>
+        
+        <div class="input-group">
+            <label for="count">当選者数</label>
+            <input type="number" id="count" value="1" min="1">
+        </div>
+        
+        <button id="draw-btn" onclick="draw()">抽選スタート！</button>
+        
+        <div id="result-container" class="hidden">
+            <h2>🎊 抽選結果 🎊</h2>
+            <ul id="result-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        function draw() {
+            const namesInput = document.getElementById('names').value;
+            const countInput = parseInt(document.getElementById('count').value);
+            const resultContainer = document.getElementById('result-container');
+            const resultList = document.getElementById('result-list');
+
+            // リセット
+            resultList.innerHTML = '';
+            resultContainer.classList.add('hidden');
+
+            if (!namesInput.trim()) {
+                alert('名前を入力してください。');
+                return;
+            }
+
+            // 改行で分割し、空行を除外
+            let names = namesInput.split('\n')
+                                  .map(name => name.trim())
+                                  .filter(name => name.length > 0);
+
+            // 重複を除外したい場合は以下を有効化
+            // names = [...new Set(names)];
+
+            if (names.length === 0) {
+                alert('有効な名前がありません。');
+                return;
+            }
+
+            if (isNaN(countInput) || countInput < 1) {
+                alert('当選者数は1以上を指定してください。');
+                return;
+            }
+
+            if (countInput > names.length) {
+                alert(`当選者数（${countInput}人）が入力された名前の数（${names.length}人）を超えています。`);
+                return;
+            }
+
+            // Fisher-Yates アルゴリズムで配列をシャッフル
+            for (let i = names.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [names[i], names[j]] = [names[j], names[i]];
+            }
+
+            // 当選者を抽出
+            const winners = names.slice(0, countInput);
+
+            // 当選者を表示
+            winners.forEach((winner, index) => {
+                const li = document.createElement('li');
+                li.textContent = winner;
+                // アニメーションの遅延を設定して順番に表示
+                li.style.animationDelay = `${index * 0.15}s`;
+                resultList.appendChild(li);
+            });
+
+            // 結果エリアを表示
+            resultContainer.classList.remove('hidden');
+
+            // 紙吹雪エフェクト
+            createConfetti();
+        }
+
+        function createConfetti() {
+            const colors = ['#a855f7', '#ec4899', '#fbbf24', '#3b82f6', '#10b981', '#f43f5e'];
+            const confettiCount = 100;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // ランダムな位置、色、サイズ、アニメーション時間を設定
+                const startX = Math.random() * window.innerWidth;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const duration = Math.random() * 3 + 2; // 2秒〜5秒
+                const size = Math.random() * 8 + 6; // 6px〜14px
+                
+                confetti.style.left = `${startX}px`;
+                confetti.style.top = '-20px';
+                confetti.style.backgroundColor = color;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.animationDuration = `${duration}s`;
+                
+                // 半分は円形、半分は四角形にする
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                }
+                
+                document.body.appendChild(confetti);
+                
+                // アニメーション終了後に要素を削除
+                setTimeout(() => {
+                    confetti.remove();
+                }, duration * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
