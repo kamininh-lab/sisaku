@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ランダム抽選ツール</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>ランダム抽選ツール - エキサイティング版</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #a855f7;
+            --primary: #8b5cf6;
             --secondary: #ec4899;
-            --bg-color: #0f172a;
-            --surface: rgba(30, 41, 59, 0.7);
+            --tertiary: #3b82f6;
+            --bg-dark: #09090b;
+            --surface: rgba(24, 24, 27, 0.8);
             --text: #f8fafc;
+            --glow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         body {
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background: linear-gradient(135deg, var(--bg-color), #1e1b4b);
+            background: linear-gradient(-45deg, #09090b, #1e1b4b, #312e81, #4c1d95);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: var(--text);
             min-height: 100vh;
             display: flex;
@@ -30,113 +40,194 @@
 
         .container {
             background: var(--surface);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
             padding: 40px;
             width: 100%;
-            max-width: 500px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.2);
+            max-width: 550px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             text-align: center;
             position: relative;
             z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .container.drawing {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), var(--glow);
+            border-color: rgba(139, 92, 246, 0.5);
         }
 
         h1 {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 900;
             margin-top: 0;
             margin-bottom: 30px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, #a855f7, #ec4899, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(236, 72, 153, 0.2);
+            letter-spacing: 1px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-align: left;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 0.95rem;
-            color: #cbd5e1;
-            font-weight: 600;
+            color: #e2e8f0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         textarea, input[type="number"] {
             width: 100%;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(0,0,0,0.25);
+            padding: 16px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.4);
             color: var(--text);
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 1.05rem;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         textarea {
-            height: 160px;
+            height: 140px;
             resize: vertical;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         textarea::placeholder {
-            color: #475569;
+            color: #64748b;
         }
 
         textarea:focus, input[type="number"]:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
-            background: rgba(0,0,0,0.4);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes pulse-btn {
+            0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(236, 72, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
         }
 
         button {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             color: white;
             border: none;
-            padding: 16px 32px;
-            font-size: 1.2rem;
-            font-weight: 800;
+            padding: 18px 32px;
+            font-size: 1.3rem;
+            font-weight: 900;
             border-radius: 50px;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 2px;
+            animation: pulse-btn 2s infinite;
         }
 
-        button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.6);
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-20deg);
+            transition: all 0.5s;
         }
 
-        button:active {
+        button:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4);
+        }
+
+        button:hover:not(:disabled)::before {
+            left: 150%;
+        }
+
+        button:active:not(:disabled) {
             transform: translateY(1px) scale(0.98);
+        }
+
+        button:disabled {
+            background: #475569;
+            cursor: not-allowed;
+            animation: none;
+            opacity: 0.7;
         }
 
         .hidden {
             display: none !important;
         }
 
+        /* Roulette Display */
+        #roulette-display {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        #roulette-display.active {
+            opacity: 1;
+        }
+
+        .roulette-name {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary);
+            animation: fastPulse 0.1s infinite alternate;
+            word-break: break-word;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        @keyframes fastPulse {
+            from { transform: scale(0.95); opacity: 0.8; }
+            to { transform: scale(1.05); opacity: 1; }
+        }
+
+        /* Result Area */
         #result-container {
-            margin-top: 35px;
+            margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px dashed rgba(255,255,255,0.2);
-            animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            border-top: 2px dashed rgba(255, 255, 255, 0.1);
         }
 
         #result-container h2 {
             color: #fbbf24;
-            font-size: 1.6rem;
+            font-size: 2rem;
+            font-weight: 900;
             margin-top: 0;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         #result-list {
@@ -145,54 +236,64 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         #result-list li {
-            background: linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 1.3rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            padding: 20px;
+            border-radius: 16px;
+            font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: 1px;
-            border-left: 4px solid var(--primary);
-            animation: slideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            border-left: 6px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
             opacity: 0;
-            transform: translateY(20px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(30px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            animation: slideUpTada 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        #result-list li::after {
+            content: '👑';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            opacity: 0.8;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Confetti styling */
+        @keyframes slideUpTada {
+            0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+            70% { transform: translateY(-5px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Confetti */
         .confetti {
             position: fixed;
-            width: 12px;
-            height: 12px;
             z-index: 1000;
-            animation: fall linear forwards;
             pointer-events: none;
+            animation: fall cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
 
         @keyframes fall {
-            to {
-                transform: translateY(100vh) rotate(720deg);
-            }
+            0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.5); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🎉 ランダム抽選ツール</h1>
+    <div class="container" id="main-container">
+        <h1>🎉 スーパー抽選ツール 🌟</h1>
         
         <div class="input-group">
             <label for="names">参加者の名前（改行で区切る）</label>
@@ -204,7 +305,7 @@
             <input type="number" id="count" value="1" min="1">
         </div>
         
-        <button id="draw-btn" onclick="draw()">抽選スタート！</button>
+        <button id="draw-btn" onclick="startDraw()">抽選スタート！</button>
         
         <div id="result-container" class="hidden">
             <h2>🎊 抽選結果 🎊</h2>
@@ -212,29 +313,99 @@
         </div>
     </div>
 
+    <div id="roulette-display">
+        <div class="roulette-name" id="roulette-name-text"></div>
+    </div>
+
     <script>
-        function draw() {
+        // Web Audio API Context
+        let audioCtx;
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playTick() {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.05);
+            
+            gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
+        }
+
+        function playWinnerChime() {
+            if (!audioCtx) return;
+            
+            // 和音を鳴らす
+            const freqs = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+            
+            freqs.forEach((freq, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                
+                const startTime = audioCtx.currentTime + (i * 0.1);
+                gain.gain.setValueAtTime(0, startTime);
+                gain.gain.linearRampToValueAtTime(0.15, startTime + 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.001, startTime + 1.5);
+                
+                osc.start(startTime);
+                osc.stop(startTime + 1.5);
+            });
+        }
+
+        function playDrumrollEnd() {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(200, audioCtx.currentTime + 0.3);
+            
+            gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.3);
+        }
+
+        function startDraw() {
+            initAudio(); // ユーザーのアクションでAudio Contextを初期化
+
             const namesInput = document.getElementById('names').value;
             const countInput = parseInt(document.getElementById('count').value);
-            const resultContainer = document.getElementById('result-container');
-            const resultList = document.getElementById('result-list');
-
-            // リセット
-            resultList.innerHTML = '';
-            resultContainer.classList.add('hidden');
+            const btn = document.getElementById('draw-btn');
+            const mainContainer = document.getElementById('main-container');
 
             if (!namesInput.trim()) {
-                alert('名前を入力してください。');
+                alert('参加者の名前を入力してください！');
                 return;
             }
 
-            // 改行で分割し、空行を除外
             let names = namesInput.split('\n')
                                   .map(name => name.trim())
                                   .filter(name => name.length > 0);
-
-            // 重複を除外したい場合は以下を有効化
-            // names = [...new Set(names)];
 
             if (names.length === 0) {
                 alert('有効な名前がありません。');
@@ -251,63 +422,122 @@
                 return;
             }
 
-            // Fisher-Yates アルゴリズムで配列をシャッフル
-            for (let i = names.length - 1; i > 0; i--) {
+            // 準備完了、UIのステート変更
+            btn.disabled = true;
+            btn.textContent = 'ドキドキ... 抽選中！';
+            mainContainer.classList.add('drawing');
+            document.getElementById('result-container').classList.add('hidden');
+            document.getElementById('result-list').innerHTML = '';
+
+            // Fisher-Yates シャッフル
+            let shuffled = [...names];
+            for (let i = shuffled.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [names[i], names[j]] = [names[j], names[i]];
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
             }
+            const winners = shuffled.slice(0, countInput);
 
-            // 当選者を抽出
-            const winners = names.slice(0, countInput);
+            // ルーレット演出開始
+            startRouletteAnimation(names, winners);
+        }
 
-            // 当選者を表示
+        function startRouletteAnimation(allNames, winners) {
+            const rouletteDisplay = document.getElementById('roulette-display');
+            const rouletteText = document.getElementById('roulette-name-text');
+            
+            rouletteDisplay.classList.add('active');
+            
+            let duration = 2500; // 2.5秒間ルーレット
+            let interval = 50; // 50msごとに切り替え
+            let elapsed = 0;
+            
+            const timer = setInterval(() => {
+                // ランダムな名前を表示
+                const randomName = allNames[Math.floor(Math.random() * allNames.length)];
+                rouletteText.textContent = randomName;
+                playTick();
+
+                elapsed += interval;
+                
+                // 徐々に遅くする（演出）
+                if (elapsed > duration * 0.7) {
+                    interval += 20; // 後半は切り替え速度を落とす
+                }
+
+                if (elapsed >= duration) {
+                    clearInterval(timer);
+                    playDrumrollEnd();
+                    
+                    // 少し溜めてから結果表示
+                    setTimeout(() => {
+                        rouletteDisplay.classList.remove('active');
+                        showResults(winners);
+                    }, 500);
+                }
+            }, interval);
+        }
+
+        function showResults(winners) {
+            const resultContainer = document.getElementById('result-container');
+            const resultList = document.getElementById('result-list');
+            const btn = document.getElementById('draw-btn');
+            const mainContainer = document.getElementById('main-container');
+
+            mainContainer.classList.remove('drawing');
+            resultContainer.classList.remove('hidden');
+
+            playWinnerChime();
+            createSuperConfetti();
+
             winners.forEach((winner, index) => {
                 const li = document.createElement('li');
                 li.textContent = winner;
-                // アニメーションの遅延を設定して順番に表示
-                li.style.animationDelay = `${index * 0.15}s`;
+                li.style.animationDelay = `${index * 0.3}s`; // 当選者が複数なら順番に出す
                 resultList.appendChild(li);
             });
 
-            // 結果エリアを表示
-            resultContainer.classList.remove('hidden');
-
-            // 紙吹雪エフェクト
-            createConfetti();
+            // ボタンを元に戻す
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.textContent = 'もう一度抽選する！';
+            }, winners.length * 300 + 1000);
         }
 
-        function createConfetti() {
-            const colors = ['#a855f7', '#ec4899', '#fbbf24', '#3b82f6', '#10b981', '#f43f5e'];
-            const confettiCount = 100;
+        function createSuperConfetti() {
+            const colors = ['#8b5cf6', '#ec4899', '#f59e0b', '#3b82f6', '#10b981', '#ef4444', '#ffffff'];
+            const confettiCount = 150;
             
             for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 
-                // ランダムな位置、色、サイズ、アニメーション時間を設定
                 const startX = Math.random() * window.innerWidth;
                 const color = colors[Math.floor(Math.random() * colors.length)];
-                const duration = Math.random() * 3 + 2; // 2秒〜5秒
-                const size = Math.random() * 8 + 6; // 6px〜14px
+                const duration = Math.random() * 2 + 1.5; // 1.5秒〜3.5秒
+                const size = Math.random() * 10 + 8; // 8px〜18px
+                const delay = Math.random() * 0.5; // 少し遅れて降ってくるものも
                 
                 confetti.style.left = `${startX}px`;
-                confetti.style.top = '-20px';
+                confetti.style.top = '-5vh';
                 confetti.style.backgroundColor = color;
                 confetti.style.width = `${size}px`;
-                confetti.style.height = `${size}px`;
+                confetti.style.height = `${size * (Math.random() + 0.5)}px`; // 長方形にしたり
                 confetti.style.animationDuration = `${duration}s`;
+                confetti.style.animationDelay = `${delay}s`;
                 
-                // 半分は円形、半分は四角形にする
-                if (Math.random() > 0.5) {
-                    confetti.style.borderRadius = '50%';
+                // 形状をランダムに
+                const shape = Math.random();
+                if (shape > 0.6) {
+                    confetti.style.borderRadius = '50%'; // 丸
+                } else if (shape > 0.3) {
+                    confetti.style.transform = `skew(${Math.random() * 30}deg)`; // 斜め
                 }
                 
                 document.body.appendChild(confetti);
                 
-                // アニメーション終了後に要素を削除
                 setTimeout(() => {
                     confetti.remove();
-                }, duration * 1000);
+                }, (duration + delay) * 1000 + 100);
             }
         }
     </script>
