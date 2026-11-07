@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>玉龍中 学校説明会 当日ストーリー</title>
+<link rel="stylesheet" href="node_modules/@fontsource/dela-gothic-one/400.css">
+<link rel="stylesheet" href="node_modules/@fontsource/m-plus-rounded-1c/700.css">
+<link rel="stylesheet" href="node_modules/@fontsource/m-plus-rounded-1c/800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/m-plus-rounded-1c/900.css">
+<style>
+  /*
+   * 鹿児島市立鹿児島玉龍中学校 令和8年度 学校説明会（2026-11-08）
+   * Instagram ストーリー用 1080x1920 アニメーション（約17秒）
+   * IG のUIに隠れないよう、主要情報は y=260〜1620 に収めている。
+   */
+  :root{
+    --navy:#0b2560;
+    --navy2:#173f99;
+    --yellow:#ffd43b;
+    --orange:#ff8a1f;
+    --red:#ff3b5c;
+    --green:#1fb455;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--navy)}
+  body{font-family:'M PLUS Rounded 1c',sans-serif;color:var(--navy);-webkit-font-smoothing:antialiased}
+  .dela{font-family:'Dela Gothic One','M PLUS Rounded 1c',sans-serif;font-weight:400}
+
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+    background:linear-gradient(175deg,#0868d9 0%,#1592f5 42%,#49bdff 78%,#8fd8ff 100%)}
+  #bg,#bg > *{position:absolute;inset:0}
+  .bg-dots{background-image:radial-gradient(rgba(255,255,255,.13) 3.2px,transparent 3.6px);
+    background-size:44px 44px;mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 60%,#000 100%)}
+  .bg-glow{background:radial-gradient(70% 40% at 50% 36%,rgba(255,255,255,.28),transparent 70%)}
+  .floater{position:absolute;border-radius:50%;background:rgba(255,255,255,.10);border:3px solid rgba(255,255,255,.14)}
+  .sparkle{position:absolute;width:56px;height:56px;opacity:0}
+  .sparkle svg{width:100%;height:100%;display:block}
+
+  #shake{position:absolute;inset:0}
+  .scene{position:absolute;inset:0;opacity:0}
+  .row-c{position:absolute;left:0;right:0;display:flex;justify-content:center}
+  .in{opacity:0;display:inline-block}  /* entering elements start hidden */
+
+  /* ===== outlines / pop style ===== */
+  .stroke{-webkit-text-stroke:var(--sw,14px) var(--navy);paint-order:stroke fill}
+  .pop-card{background:#fff;border:6px solid var(--navy);border-radius:38px;box-shadow:0 12px 0 var(--navy)}
+
+  /* ===== scene 1 ===== */
+  .rays{position:absolute;width:1900px;height:1900px;left:50%;top:50%;margin:-950px 0 0 -950px;border-radius:50%;
+    background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.26) 0deg 8deg,rgba(255,255,255,0) 8deg 20deg);
+    -webkit-mask-image:radial-gradient(circle,#000 8%,rgba(0,0,0,.6) 32%,transparent 62%);
+            mask-image:radial-gradient(circle,#000 8%,rgba(0,0,0,.6) 32%,transparent 62%)}
+  .rays-pos{position:absolute;left:540px;top:690px;width:0;height:0}
+  .school-pill{background:#fff;color:var(--navy);font-weight:900;font-size:42px;letter-spacing:.04em;
+    padding:14px 40px 16px;border-radius:999px;border:6px solid var(--navy);box-shadow:0 9px 0 var(--navy)}
+  .school-pill small{font-size:32px;font-weight:800;margin-right:12px;color:var(--navy2)}
+  .iyoiyo{font-size:92px;font-weight:900;color:#fff;--sw:16px;letter-spacing:.06em;line-height:1}
+  .mega{font-size:372px;line-height:1;color:var(--yellow);--sw:30px;letter-spacing:-.02em;
+    text-shadow:0 22px 0 var(--navy)}
+  .kaisai{font-size:196px;line-height:1;color:#fff;--sw:22px;text-shadow:0 16px 0 var(--navy)}
+  .banner{background:var(--navy);border-radius:32px;padding:20px 64px 30px;text-align:center;
+    border:6px solid #fff;box-shadow:0 12px 0 rgba(11,37,96,.45)}
+  .banner .y{font-size:46px;font-weight:900;color:var(--yellow);letter-spacing:.12em;line-height:1.2}
+  .banner .t{font-size:118px;color:#fff;line-height:1.05;letter-spacing:.04em}
+  .slogan{font-size:46px;font-weight:900;color:#fff;--sw:12px;letter-spacing:.02em}
+
+  /* ===== section label (scenes 2-4) ===== */
+  .label-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .kicker{font-size:30px;color:#fff;letter-spacing:.32em;line-height:1;opacity:.95}
+  .label{background:var(--navy);color:var(--yellow);font-weight:900;font-size:58px;line-height:1;
+    padding:20px 54px 24px;border-radius:999px;border:6px solid #fff;box-shadow:0 10px 0 rgba(11,37,96,.4)}
+
+  /* ===== scene 2 ===== */
+  .date{display:flex;align-items:center;gap:26px}
+  .date .md{font-size:212px;line-height:1;color:#fff;--sw:24px;text-shadow:0 18px 0 var(--navy);letter-spacing:-.01em}
+  .date .md .sl{font-size:.7em;margin:0 -.02em;position:relative;top:-.06em}
+  .dow{width:148px;height:148px;border-radius:50%;background:var(--red);color:#fff;font-size:88px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;border:7px solid #fff;box-shadow:0 12px 0 var(--navy);
+    padding-bottom:8px}
+  .stamp{position:absolute;left:858px;top:232px;width:182px;height:182px;border-radius:50%;
+    background:var(--yellow);border:8px solid var(--red);color:var(--red);font-size:64px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 0 var(--navy);opacity:0;line-height:1}
+  .stamp span{display:block;transform:rotate(-12deg)}
+  .time-card{position:absolute;left:60px;top:688px;width:960px;height:204px;display:flex;align-items:center;gap:30px;padding:0 40px;opacity:0}
+  .clock{width:128px;height:128px;flex:none}
+  .time-main{display:flex;flex-direction:column;gap:10px}
+  .tbig{font-size:80px;line-height:1;color:var(--navy);letter-spacing:-.01em;white-space:nowrap}
+  .tbig .tl{font-size:.8em;margin:0 .06em;color:var(--orange)}
+  .uketsuke{align-self:flex-start;background:var(--orange);color:#fff;font-weight:900;font-size:44px;line-height:1;
+    padding:12px 30px 14px;border-radius:999px}
+  .place-card{position:absolute;left:60px;top:924px;width:960px;height:592px;padding:20px;opacity:0;overflow:hidden}
+  .photo{width:908px;height:368px;border-radius:24px;overflow:hidden;position:relative}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;display:block;transform-origin:45% 55%}
+  .place-label{display:flex;align-items:center;gap:22px;padding:18px 10px 0 6px}
+  .pin{width:104px;height:120px;flex:none}
+  .psub{font-size:42px;font-weight:900;line-height:1.25;color:var(--navy)}
+  .pbig{font-size:96px;line-height:1.05;color:#ff4a1c}
+
+  /* ===== scene 3 ===== */
+  .prog{position:absolute;left:60px;width:960px;height:108px;display:flex;align-items:center;gap:28px;padding:0 28px;opacity:0}
+  .num{width:84px;height:84px;border-radius:50%;background:var(--navy);color:var(--yellow);font-size:50px;flex:none;
+    display:flex;align-items:center;justify-content:center;padding-bottom:4px}
+  .prog .txt{font-size:56px;font-weight:900;color:var(--navy);letter-spacing:.01em;white-space:nowrap}
+  .strip-cap{font-size:42px;font-weight:900;color:#fff;--sw:10px;letter-spacing:.04em}
+  .strip{position:absolute;left:0;top:984px;width:1080px;height:290px;opacity:0}
+  .strip-inner{position:absolute;left:40px;top:6px;display:flex;gap:26px}
+  .act{width:340px;background:#fff;border:5px solid var(--navy);border-radius:22px;padding:10px 10px 0;box-shadow:0 9px 0 var(--navy);flex:none}
+  .act:nth-child(odd){transform:rotate(-2.2deg)}
+  .act:nth-child(even){transform:rotate(1.8deg) translateY(10px)}
+  .act img{width:310px;height:188px;object-fit:cover;border-radius:12px;display:block}
+  .act p{font-size:27px;font-weight:900;text-align:center;line-height:1;padding:12px 0 14px;white-space:nowrap;letter-spacing:-.02em}
+  .gansho{position:absolute;left:70px;top:1290px;width:940px;padding:22px 30px 26px;border-radius:34px;opacity:0;
+    background:linear-gradient(135deg,#ff3b5c 0%,#ff7a1f 100%);border:7px solid #fff;box-shadow:0 12px 0 var(--navy);text-align:center}
+  .gansho .l1{display:flex;align-items:baseline;justify-content:center;gap:10px;white-space:nowrap}
+  .gansho .a{font-size:52px;font-weight:900;color:#fff}
+  .gansho .b{font-size:76px;color:var(--yellow);line-height:1.1;--sw:12px}
+  .gansho .l2{font-size:38px;font-weight:800;color:#fff;margin-top:6px;letter-spacing:.02em}
+
+  /* ===== scene 4 ===== */
+  .chk{position:absolute;left:60px;width:960px;display:flex;align-items:center;gap:26px;padding:0 30px;opacity:0}
+  .chk svg{width:92px;height:92px;flex:none}
+  .chk .t1{font-size:54px;font-weight:900;line-height:1.25;color:var(--navy)}
+  .chk .t2{font-size:44px;font-weight:900;line-height:1.3;color:var(--navy)}
+  .chk .em{color:#ff3b1c}
+  .mascot-pos{position:absolute;left:520px;top:900px;width:548px;height:703px;opacity:0}
+  .mascot-bob{width:100%;height:100%;transform-origin:50% 100%}
+  .mascot{width:100%;height:100%;display:block;
+    filter:drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff)
+           drop-shadow(0 14px 18px rgba(4,20,70,.35))}
+  .mascot-rays{position:absolute;left:794px;top:1180px;width:0;height:0}
+  .clip{position:absolute;left:0;top:0;width:1080px;height:1600px;overflow:hidden}
+  .mascot-rays .rays{width:1100px;height:1100px;margin:-550px 0 0 -550px}
+  .bubble{position:absolute;left:36px;top:920px;width:500px;height:196px;border-radius:100px;background:#fff;
+    border:7px solid var(--navy);box-shadow:0 10px 0 var(--navy);display:flex;align-items:center;justify-content:center;
+    opacity:0;transform-origin:92% 80%}
+  .bubble::after{content:"";position:absolute;right:-50px;top:92px;width:76px;height:52px;background:#fff;
+    clip-path:polygon(0 0,100% 55%,0 100%);}
+  .bubble::before{content:"";position:absolute;right:-66px;top:88px;width:94px;height:70px;background:var(--navy);
+    clip-path:polygon(0 0,100% 55%,0 100%);}
+  .bubble span{font-size:72px;color:var(--navy);line-height:1;white-space:nowrap;padding-bottom:6px}
+  .cta{position:absolute;left:36px;top:1148px;width:500px;height:366px;border-radius:38px;background:var(--yellow);
+    border:7px solid var(--navy);box-shadow:0 12px 0 var(--navy);padding:24px 30px;text-align:center;opacity:0}
+  .cta .today{display:inline-block;background:var(--red);color:#fff;font-weight:900;font-size:40px;line-height:1;
+    padding:10px 26px 13px;border-radius:999px;border:4px solid #fff}
+  .cta .lab{font-size:44px;font-weight:900;margin-top:12px;line-height:1.1}
+  .cta .big{font-size:116px;line-height:1.02;color:var(--navy);letter-spacing:-.01em}
+  .cta .at{font-size:38px;font-weight:900;line-height:1.2;margin-top:2px}
+
+  /* ===== persistent ticker ===== */
+  #ticker{position:absolute;left:0;right:0;top:1540px;height:86px;background:var(--navy);overflow:hidden;
+    border-top:6px solid var(--yellow);border-bottom:6px solid var(--yellow);opacity:0}
+  .tk-inner{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;white-space:nowrap}
+  .tk-inner span{font-size:42px;font-weight:900;color:#fff;padding-right:20px}
+  .tk-inner b{color:var(--yellow);font-weight:900}
+  .tk-inner i{font-style:normal;color:var(--yellow);padding-right:20px;font-size:34px}
+
+  #footer{position:absolute;left:0;right:0;top:1652px;text-align:center;color:#fff;font-weight:800;font-size:30px;line-height:1.45;
+    text-shadow:0 2px 0 rgba(11,37,96,.55);opacity:0}
+  #footer b{font-weight:900}
+
+  /* ===== confetti / wipes ===== */
+  #confetti{position:absolute;inset:0;pointer-events:none}
+  .cf{position:absolute;left:0;top:0;opacity:0}
+  .wipe{position:absolute;top:-300px;left:50%;width:2400px;height:2520px;margin-left:-1200px;transform:translateX(-2700px) skewX(-14deg)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg">
+    <div class="bg-glow"></div>
+    <div class="bg-dots"></div>
+    <div id="floaters"></div>
+    <div id="sparkles"></div>
+  </div>
+
+  <div id="shake">
+    <!-- ================= SCENE 1 : いよいよ本日開催！ ================= -->
+    <section class="scene" id="s1">
+      <div class="rays-pos"><div class="in" id="s1-rays-o" style="position:absolute;left:0;top:0"><div class="rays" id="s1-rays"></div></div></div>
+      <div class="row-c" style="top:262px"><div class="in school-pill" id="s1-school"><small>鹿児島市立</small>鹿児島玉龍中学校</div></div>
+      <div class="row-c" style="top:398px"><span class="in iyoiyo stroke" id="s1-iyoiyo">いよいよ</span></div>
+      <div class="row-c" style="top:492px"><span class="in" id="s1-hon-o"><span class="mega dela stroke" id="s1-hon" style="display:inline-block">本日</span></span></div>
+      <div class="row-c" style="top:880px"><span class="in kaisai dela stroke" id="s1-kaisai">開催！</span></div>
+      <div class="row-c" style="top:1118px"><div class="in banner" id="s1-banner"><div class="y">令和８年度</div><div class="t dela">学校説明会</div></div></div>
+      <div class="row-c" style="top:1412px"><span class="in slogan stroke" id="s1-slogan">夢のステージへの架け橋を共に歩もう！</span></div>
+    </section>
+
+    <!-- ================= SCENE 2 : 日時・場所 ================= -->
+    <section class="scene" id="s2">
+      <div class="row-c" style="top:240px"><div class="in label-wrap" id="s2-label"><div class="kicker dela">WHEN &amp; WHERE</div><div class="label">日時・場所</div></div></div>
+      <div class="row-c" style="top:432px"><div class="in date" id="s2-date"><span class="md dela stroke">11<span class="sl">/</span>8</span><span class="dow">日</span></div></div>
+      <div class="stamp dela" id="s2-stamp"><span>本日</span></div>
+      <div class="pop-card time-card" id="s2-time">
+        <svg class="clock" viewBox="0 0 150 150">
+          <circle cx="75" cy="75" r="66" fill="#fff" stroke="#0b2560" stroke-width="10"/>
+          <g fill="#0b2560"><circle cx="75" cy="22" r="5"/><circle cx="128" cy="75" r="5"/><circle cx="75" cy="128" r="5"/><circle cx="22" cy="75" r="5"/></g>
+          <g id="clock-h" style="transform-origin:75px 75px"><rect x="70" y="44" width="10" height="36" rx="5" fill="#0b2560"/></g>
+          <g id="clock-m" style="transform-origin:75px 75px"><rect x="71" y="26" width="8" height="54" rx="4" fill="#ff8a1f"/></g>
+          <circle cx="75" cy="75" r="9" fill="#0b2560"/>
+        </svg>
+        <div class="time-main">
+          <div class="tbig dela">13:25<span class="tl">〜</span>15:00</div>
+          <div class="uketsuke">受付 13:00〜</div>
+        </div>
+      </div>
+      <div class="pop-card place-card" id="s2-place">
+        <div class="photo"><img id="s2-photo" src="assets/school.jpg" alt=""></div>
+        <div class="place-label">
+          <div id="s2-pin-o"><svg class="pin" viewBox="0 0 104 120" id="s2-pin">
+            <path d="M52 4C26 4 8 23 8 47c0 30 44 69 44 69s44-39 44-69C96 23 78 4 52 4z" fill="#ff3b5c" stroke="#0b2560" stroke-width="7"/>
+            <circle cx="52" cy="46" r="16" fill="#fff" stroke="#0b2560" stroke-width="6"/>
+          </svg></div>
+          <div>
+            <div class="psub">鹿児島玉龍中学校・高等学校</div>
+            <div class="pbig dela">第１体育館</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 3 : 説明会の内容 ================= -->
+    <section class="scene" id="s3">
+      <div class="row-c" style="top:240px"><div class="in label-wrap" id="s3-label"><div class="kicker dela">PROGRAM</div><div class="label">説明会の内容</div></div></div>
+      <div class="pop-card prog" id="s3-p1" style="top:428px"><div class="num dela">1</div><div class="txt">学校生活について</div></div>
+      <div class="pop-card prog" id="s3-p2" style="top:550px"><div class="num dela">2</div><div class="txt">玉龍生による魅力紹介</div></div>
+      <div class="pop-card prog" id="s3-p3" style="top:672px"><div class="num dela">3</div><div class="txt">入学者選抜について</div></div>
+      <div class="pop-card prog" id="s3-p4" style="top:794px"><div class="num dela">4</div><div class="txt">質疑応答</div></div>
+      <div class="row-c" style="top:924px"><span class="in strip-cap stroke" id="s3-cap">魅力あふれる 鹿児島玉龍中の教育活動</span></div>
+      <div class="strip" id="s3-strip"><div class="strip-inner" id="s3-strip-inner"></div></div>
+      <div class="gansho" id="s3-gansho">
+        <div class="l1"><span class="a">願書配付も</span><span class="b dela stroke">本日スタート！</span></div>
+        <div class="l2">願書受付　11/11(水)〜11/17(火)</div>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 4 : 持ち物・注意 + マスコット ================= -->
+    <section class="scene" id="s4">
+      <div class="row-c" style="top:240px"><div class="in label-wrap" id="s4-label"><div class="kicker dela">CHECK!</div><div class="label">ご来場の前に</div></div></div>
+      <!-- mascot sits behind the checklist so its horns never cover text -->
+      <div class="mascot-rays"><div class="in" id="s4-rays-o" style="position:absolute;left:0;top:0"><div class="rays" id="s4-rays"></div></div></div>
+      <div class="clip"><div class="mascot-pos" id="s4-mascot"><div class="mascot-bob" id="s4-bob"><img class="mascot" src="assets/mascot.png" alt=""></div></div></div>
+      <div class="pop-card chk" id="s4-c1" style="top:430px;height:122px">
+        <svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="42" fill="#1fb455"/><path class="ck" d="M25 47 L40 62 L68 31" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+        <div class="t1">参加申込は<span class="em">不要</span>です</div>
+      </div>
+      <div class="pop-card chk" id="s4-c2" style="top:572px;height:150px">
+        <svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="42" fill="#1fb455"/><path class="ck" d="M25 47 L40 62 L68 31" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+        <div class="t2"><span class="em">上履き</span>と<span class="em">靴を入れる袋</span>を<br>ご持参ください</div>
+      </div>
+      <div class="pop-card chk" id="s4-c3" style="top:742px;height:150px">
+        <svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="42" fill="#1fb455"/><path class="ck" d="M25 47 L40 62 L68 31" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+        <div class="t2"><span class="em">駐車場はありません</span><br>公共交通機関をご利用ください</div>
+      </div>
+      <div class="bubble" id="s4-bubble"><span class="dela" id="s4-bubble-t" style="display:inline-block">待ってるよ！</span></div>
+      <div class="cta" id="s4-cta">
+        <div class="today">本日 11/8(日)</div>
+        <div class="lab">受付開始</div>
+        <div class="big dela">13:00</div>
+        <div class="at">会場：第１体育館</div>
+      </div>
+    </section>
+
+    <div id="confetti"></div>
+  </div>
+
+  <div id="ticker"><div class="tk-inner" id="tk"></div></div>
+  <div id="footer"><b>鹿児島市立鹿児島玉龍中学校</b><br>鹿児島市池之上町20番57号　TEL 099-247-7161</div>
+  <div id="wipes"></div>
+</div>
+
+<script>
+(() => {
+  const DURATION = 17.0;           // seconds
+  const CUTS = [3.2, 7.6, 11.8];   // scene boundaries
+  window.DURATION = DURATION;
+
+  const $ = (s) => document.querySelector(s);
+  const E = {
+    outBack: 'cubic-bezier(.34,1.56,.64,1)',
+    outBack2: 'cubic-bezier(.26,1.9,.5,1)',
+    outExpo: 'cubic-bezier(.16,1,.3,1)',
+    out: 'cubic-bezier(.22,.9,.3,1)',
+    inOut: 'cubic-bezier(.65,0,.35,1)',
+    lin: 'linear',
+  };
+  // a(): one WAAPI animation on the global timeline (start/dur in seconds)
+  function a(el, frames, start, dur, o = {}) {
+    if (typeof el === 'string') el = $(el);
+    return el.animate(frames, {
+      delay: start * 1000, duration: dur * 1000,
+      fill: o.fill || 'both', easing: o.easing || E.out,
+      iterations: o.iterations || 1, direction: o.direction || 'normal',
+    });
+  }
+  const loop = (el, frames, start, dur, easing = 'ease-in-out') =>
+    a(el, frames, start, dur, { iterations: Infinity, direction: 'alternate', easing, fill: 'none' });
+
+  // deterministic RNG so every render is identical
+  function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+  /* ---------- background ---------- */
+  const R = rng(7);
+  const fl = $('#floaters');
+  [[-120, 180, 420], [760, 120, 300], [820, 980, 520], [-160, 1180, 360], [420, 1500, 260], [600, 560, 180], [80, 760, 140]]
+    .forEach(([x, y, s], i) => {
+      const d = document.createElement('div'); d.className = 'floater';
+      Object.assign(d.style, { left: x + 'px', top: y + 'px', width: s + 'px', height: s + 'px' });
+      fl.appendChild(d);
+      loop(d, [{ transform: 'translate(0,0)' }, { transform: `translate(${(R() - .5) * 90}px,${-60 - R() * 90}px)` }], 0, 5 + R() * 4);
+    });
+  const STAR = '<svg viewBox="0 0 100 100"><path d="M50 0C54 36 64 46 100 50C64 54 54 64 50 100C46 64 36 54 0 50C36 46 46 36 50 0Z" fill="#fff"/></svg>';
+  const sp = $('#sparkles');
+  [[90, 330], [960, 420], [140, 900], [990, 830], [70, 1290], [1000, 1250], [300, 230], [860, 1460], [520, 1490], [40, 600]]
+    .forEach(([x, y], i) => {
+      const d = document.createElement('div'); d.className = 'sparkle'; d.innerHTML = STAR;
+      const s = 34 + R() * 34;
+      Object.assign(d.style, { left: x + 'px', top: y + 'px', width: s + 'px', height: s + 'px' });
+      sp.appendChild(d);
+      a(d, [{ opacity: 0, transform: 'scale(.2) rotate(0deg)' }, { opacity: .95, transform: 'scale(1) rotate(45deg)', offset: .5 }, { opacity: 0, transform: 'scale(.2) rotate(90deg)' }],
+        .2 + R() * 1.6, 1.3 + R() * .8, { iterations: Infinity, easing: 'ease-in-out', fill: 'none' });
+    });
+
+  /* ---------- scene windows + wipes ---------- */
+  const scenes = ['#s1', '#s2', '#s3', '#s4'];
+  const bounds = [0, ...CUTS, DURATION];
+  scenes.forEach((s, i) => {
+    a(s, [{ opacity: 0 }, { opacity: 1 }], bounds[i], .001, { easing: E.lin });
+    if (i < scenes.length - 1) a(s, [{ opacity: 1 }, { opacity: 0 }], bounds[i + 1], .001, { easing: E.lin, fill: 'forwards' });
+  });
+  const wipes = $('#wipes');
+  CUTS.forEach((c, i) => {
+    [['#ffd43b', 0], ['#0b2560', .07], ['#ffffff', .12]].forEach(([col, lag], k) => {
+      const w = document.createElement('div'); w.className = 'wipe'; w.style.background = col;
+      if (k === 2) { w.style.width = '160px'; w.style.marginLeft = '-80px'; }
+      wipes.appendChild(w);
+      const dir = i % 2 ? -1 : 1;
+      a(w, [
+        { transform: `translateX(${-2700 * dir}px) skewX(-14deg)` },
+        { transform: `translateX(${-160 * dir}px) skewX(-14deg)`, offset: .46 },
+        { transform: `translateX(${160 * dir}px) skewX(-14deg)`, offset: .54 },
+        { transform: `translateX(${2700 * dir}px) skewX(-14deg)` },
+      ], c - .4 + lag, .8, { easing: E.inOut });
+    });
+  });
+
+  /* ---------- confetti ---------- */
+  const COLS = ['#ffd43b', '#ffffff', '#ff3b5c', '#ff8a1f', '#1fb455', '#53c3ff'];
+  function burst(cx, cy, n, t0, seed, spread = 1) {
+    const r = rng(seed), box = $('#confetti');
+    for (let i = 0; i < n; i++) {
+      const d = document.createElement('div'); d.className = 'cf';
+      const w = 14 + r() * 16, h = r() < .3 ? w : w * (1.4 + r() * .8);
+      Object.assign(d.style, { width: w + 'px', height: h + 'px', background: COLS[i % COLS.length],
+        borderRadius: r() < .3 ? '50%' : '4px', boxShadow: '0 0 0 3px rgba(11,37,96,.0)' });
+      box.appendChild(d);
+      const ang = (-170 + r() * 160) * Math.PI / 180, dist = (260 + r() * 520) * spread;
+      const dx = Math.cos(ang) * dist, dy = Math.sin(ang) * dist;
+      const rot1 = (r() - .5) * 720, rot2 = rot1 + (r() - .5) * 900;
+      const dur = 1.7 + r() * .9;
+      a(d, [
+        { transform: `translate(${cx}px,${cy}px) rotate(0deg) scale(.2)`, opacity: 1, easing: 'cubic-bezier(.1,.75,.3,1)' },
+        { transform: `translate(${cx + dx}px,${cy + dy}px) rotate(${rot1}deg) scale(1)`, opacity: 1, offset: .32, easing: 'cubic-bezier(.45,0,.85,.55)' },
+        { transform: `translate(${cx + dx * 1.3}px,${cy + dy + 760 + r() * 300}px) rotate(${rot2}deg) scale(1)`, opacity: .0 },
+      ], t0 + r() * .06, dur, { easing: E.lin, fill: 'forwards' });
+    }
+  }
+
+  /* ---------- ticker ---------- */
+  const TK = '<span>鹿児島玉龍中 <b>学校説明会</b></span><i>★</i><span><b>本日</b> 11/8(日) 13:25〜15:00</span><i>★</i>' +
+             '<span>受付 <b>13:00〜</b></span><i>★</i><span>会場 <b>第１体育館</b></span><i>★</i><span><b>参加申込不要</b></span><i>★</i>' +
+             '<span>上履き・靴袋をご持参ください</span><i>★</i><span><b>駐車場はありません</b>（公共交通機関でお越しください）</span><i>★</i>';
+  const tk = $('#tk'); tk.innerHTML = TK + TK;
+  a('#ticker', [{ opacity: 0, transform: 'translateY(120px)' }, { opacity: 1, transform: 'translateY(0)' }], .9, .5, { easing: E.outExpo });
+  a('#footer', [{ opacity: 0 }, { opacity: .92 }], 1.1, .6, { easing: E.out });
+  a('#tk', [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }], 0, 15, { easing: E.lin, iterations: Infinity, fill: 'none' });
+
+  /* ================= SCENE 1 ================= */
+  a('#s1-rays-o', [{ opacity: 0, transform: 'scale(.3)' }, { opacity: 1, transform: 'scale(1)' }], .35, .8, { easing: E.outExpo });
+  a('#s1-rays', [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], 0, 24, { easing: E.lin, iterations: Infinity, fill: 'none' });
+  a('#s1-school', [{ opacity: 0, transform: 'translateY(-60px)' }, { opacity: 1, transform: 'translateY(0)' }], .12, .55, { easing: E.outBack });
+  a('#s1-iyoiyo', [{ opacity: 0, transform: 'scale(.4)' }, { opacity: 1, transform: 'scale(1)' }], .22, .45, { easing: E.outBack2 });
+  a('#s1-hon-o', [
+    { opacity: 0, transform: 'scale(3.2) rotate(-10deg)', easing: 'cubic-bezier(.55,0,1,.45)' },
+    { opacity: 1, transform: 'scale(.9) rotate(0deg)', offset: .5, easing: 'cubic-bezier(.2,.8,.3,1)' },
+    { opacity: 1, transform: 'scale(1.06) rotate(1deg)', offset: .72, easing: E.inOut },
+    { opacity: 1, transform: 'scale(1) rotate(0deg)' },
+  ], .34, .62, { easing: E.lin });
+  loop('#s1-hon', [{ transform: 'scale(1)' }, { transform: 'scale(1.045)' }], 1.0, .55);
+  a('#shake', [
+    { transform: 'translate(0,0)' }, { transform: 'translate(-14px,10px)' }, { transform: 'translate(12px,-8px)' },
+    { transform: 'translate(-8px,-6px)' }, { transform: 'translate(6px,5px)' }, { transform: 'translate(-3px,2px)' }, { transform: 'translate(0,0)' },
+  ], .65, .32, { easing: E.lin, fill: 'none' });
+  burst(540, 690, 54, .64, 11);
+  a('#s1-kaisai', [{ opacity: 0, transform: 'translateY(80px) scale(.5)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], .82, .5, { easing: E.outBack2 });
+  a('#s1-banner', [{ opacity: 0, transform: 'translateY(90px)' }, { opacity: 1, transform: 'translateY(0)' }], 1.12, .55, { easing: E.outBack });
+  a('#s1-slogan', [{ opacity: 0, transform: 'translateY(30px)', filter: 'blur(8px)' }, { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' }], 1.45, .6, { easing: E.outExpo });
+
+  /* ================= SCENE 2 ================= */
+  let t = CUTS[0];
+  a('#s2-label', [{ opacity: 0, transform: 'translateY(-50px) scale(.8)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], t + .12, .5, { easing: E.outBack });
+  a('#s2-date', [{ opacity: 0, transform: 'scale(.3) rotate(-6deg)' }, { opacity: 1, transform: 'scale(1) rotate(0)' }], t + .3, .6, { easing: E.outBack2 });
+  a('#s2-stamp', [
+    { opacity: 0, transform: 'scale(2.6) rotate(-30deg)', easing: 'cubic-bezier(.55,0,1,.45)' },
+    { opacity: 1, transform: 'scale(.92) rotate(6deg)', offset: .6, easing: E.out },
+    { opacity: 1, transform: 'scale(1) rotate(0deg)' },
+  ], t + .95, .45, { easing: E.lin });
+  loop('#s2-stamp span', [{ transform: 'rotate(-12deg) scale(1)' }, { transform: 'rotate(-8deg) scale(1.06)' }], t + 1.5, .5);
+  a('#s2-time', [{ opacity: 0, transform: 'translateX(-1100px) rotate(-4deg)' }, { opacity: 1, transform: 'translateX(0) rotate(0)' }], t + .55, .6, { easing: E.outExpo });
+  a('#clock-m', [{ transform: 'rotate(0deg)' }, { transform: 'rotate(720deg)' }], t + .55, 1.4, { easing: E.out });
+  a('#clock-h', [{ transform: 'rotate(-40deg)' }, { transform: 'rotate(20deg)' }], t + .55, 1.4, { easing: E.out });
+  a('#s2-place', [{ opacity: 0, transform: 'translateY(700px) rotate(5deg)' }, { opacity: 1, transform: 'translateY(0) rotate(0)' }], t + .9, .7, { easing: E.outExpo });
+  a('#s2-photo', [{ transform: 'scale(1.18)' }, { transform: 'scale(1.0)' }], t + .9, 3.6, { easing: 'cubic-bezier(.3,.1,.3,1)' });
+  a('#s2-pin-o', [{ transform: 'translateY(-120px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }], t + 1.35, .5, { easing: E.outBack2 });
+  loop('#s2-pin', [{ transform: 'translateY(0)' }, { transform: 'translateY(-12px)' }], t + 1.9, .45);
+
+  /* ================= SCENE 3 ================= */
+  t = CUTS[1];
+  a('#s3-label', [{ opacity: 0, transform: 'translateY(-50px) scale(.8)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], t + .12, .5, { easing: E.outBack });
+  ['#s3-p1', '#s3-p2', '#s3-p3', '#s3-p4'].forEach((id, i) => {
+    a(id, [{ opacity: 0, transform: 'translateX(1100px)' }, { opacity: 1, transform: 'translateX(0)' }], t + .3 + i * .16, .55, { easing: E.outExpo });
+    a(id + ' .num', [{ transform: 'scale(0) rotate(-180deg)' }, { transform: 'scale(1) rotate(0)' }], t + .5 + i * .16, .5, { easing: E.outBack2 });
+  });
+  const ACTS = [['act_jigen.jpg', '薬丸自顕流体験'], ['act_goju.jpg', '玉龍郷中'], ['act_kenshu.jpg', '市内・県内・九州自主研修'],
+                ['act_kokusai.jpg', '国際交流'], ['act_ohara.jpg', 'おはら祭への参加'], ['act_shugaku.jpg', '関東方面の修学旅行']];
+  $('#s3-strip-inner').innerHTML = [...ACTS, ...ACTS].map(([f, c]) => `<div class="act"><img src="assets/${f}" alt=""><p>${c}</p></div>`).join('');
+  a('#s3-cap', [{ opacity: 0, transform: 'scale(.6)' }, { opacity: 1, transform: 'scale(1)' }], t + .95, .45, { easing: E.outBack });
+  a('#s3-strip', [{ opacity: 0, transform: 'translateY(60px)' }, { opacity: 1, transform: 'translateY(0)' }], t + 1.0, .5, { easing: E.outExpo });
+  a('#s3-strip-inner', [{ transform: 'translateX(120px)' }, { transform: 'translateX(-1160px)' }], t, 4.4, { easing: E.lin });
+  a('#s3-gansho', [
+    { opacity: 0, transform: 'scale(2.2) rotate(-12deg)', easing: 'cubic-bezier(.55,0,1,.45)' },
+    { opacity: 1, transform: 'scale(.95) rotate(-2deg)', offset: .55, easing: E.out },
+    { opacity: 1, transform: 'scale(1) rotate(-3deg)' },
+  ], t + 1.75, .5, { easing: E.lin });
+  a('#shake', [
+    { transform: 'translate(0,0)' }, { transform: 'translate(-9px,7px)' }, { transform: 'translate(8px,-5px)' },
+    { transform: 'translate(-4px,3px)' }, { transform: 'translate(0,0)' },
+  ], t + 2.0, .24, { easing: E.lin, fill: 'none' });
+  loop('#s3-gansho .b', [{ transform: 'scale(1)' }, { transform: 'scale(1.06)' }], t + 2.4, .5);
+
+  /* ================= SCENE 4 ================= */
+  t = CUTS[2];
+  a('#s4-label', [{ opacity: 0, transform: 'translateY(-50px) scale(.8)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }], t + .12, .5, { easing: E.outBack });
+  ['#s4-c1', '#s4-c2', '#s4-c3'].forEach((id, i) => {
+    const s = t + .32 + i * .3;
+    a(id, [{ opacity: 0, transform: 'translateX(-1100px)' }, { opacity: 1, transform: 'translateX(0)' }], s, .55, { easing: E.outExpo });
+    a(id + ' svg', [{ transform: 'scale(0)' }, { transform: 'scale(1)' }], s + .2, .4, { easing: E.outBack2 });
+    a(id + ' .ck', [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], s + .38, .32, { easing: E.out });
+  });
+  a('#s4-rays-o', [{ opacity: 0, transform: 'scale(.2)' }, { opacity: .9, transform: 'scale(1)' }], t + 1.2, .8, { easing: E.outExpo });
+  a('#s4-rays', [{ transform: 'rotate(0deg)' }, { transform: 'rotate(-360deg)' }], 0, 30, { easing: E.lin, iterations: Infinity, fill: 'none' });
+  a('#s4-mascot', [
+    { opacity: 0, transform: 'translateY(760px) rotate(8deg)' },
+    { opacity: 1, transform: 'translateY(640px) rotate(7deg)', offset: .06 },
+    { opacity: 1, transform: 'translateY(0) rotate(0)' },
+  ], t + 1.15, .75, { easing: 'cubic-bezier(.3,1.22,.5,1)' });
+  loop('#s4-bob', [{ transform: 'translateY(0) rotate(-1.5deg)' }, { transform: 'translateY(-16px) rotate(1.5deg)' }], t + 1.9, .62);
+  burst(800, 1080, 40, t + 1.5, 23, .85);
+  a('#s4-bubble', [{ opacity: 0, transform: 'scale(0)' }, { opacity: 1, transform: 'scale(1)' }], t + 1.7, .5, { easing: E.outBack2 });
+  loop('#s4-bubble-t', [{ transform: 'rotate(-3deg) scale(1)' }, { transform: 'rotate(3deg) scale(1.05)' }], t + 2.2, .42);
+  a('#s4-cta', [{ opacity: 0, transform: 'translateY(420px)' }, { opacity: 1, transform: 'translateY(0)' }], t + 2.0, .65, { easing: E.outBack });
+  loop('#s4-cta .big', [{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], t + 2.9, .5);
+
+  /* ---------- seek / playback ---------- */
+  window.seek = (sec) => {
+    for (const an of document.getAnimations()) { an.pause(); an.currentTime = sec * 1000; }
+  };
+  window.__ready = (async () => {
+    window.seek(0);
+    await document.fonts.ready;
+    const txt = document.body.innerText + TK.replace(/<[^>]+>/g, '') + ACTS.map(x => x[1]).join('');
+    await Promise.all(['400 80px "Dela Gothic One"', '700 80px "M PLUS Rounded 1c"', '800 80px "M PLUS Rounded 1c"', '900 80px "M PLUS Rounded 1c"']
+      .map(f => document.fonts.load(f, txt)));
+    await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+    await document.fonts.ready;
+    return true;
+  })();
+  if (!new URLSearchParams(location.search).has('render')) {
+    window.__ready.then(() => {
+      const t0 = performance.now();
+      const tick = () => { window.seek(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(tick); };
+      tick();
+    });
+  }
+})();
+</script>
+</body>
+</html>
