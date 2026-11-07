@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>玉龍 進学相談会 リール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Zen+Maru+Gothic:wght@700;900&display=block" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1b2f6e; --navy2:#11204f; --blue:#2c4fa3; --yellow:#ffe34d; --red:#d7262c; --white:#fff; --ink:#14213d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--navy2)}
+  body{font-family:"Noto Sans JP",sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+    background:radial-gradient(120% 80% at 50% 0%, #2a46a0 0%, var(--navy) 45%, var(--navy2) 100%)}
+  .scene{position:absolute;inset:0}
+  .a{position:absolute;will-change:transform,opacity}
+  .center{left:0;right:0;text-align:center}
+  .maru{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}
+
+  /* 背景装飾 */
+  .ring{position:absolute;border-radius:50%;border:3px solid rgba(255,255,255,.08)}
+  .dotgrid{position:absolute;width:420px;height:420px;opacity:.18;
+    background-image:radial-gradient(#fff 3px,transparent 3.5px);background-size:36px 36px}
+  .stripe{position:absolute;left:-200px;width:1500px;height:26px;background:var(--yellow);transform:rotate(-8deg);opacity:.9}
+
+  .tag{display:inline-block;padding:14px 34px;border:3px solid #fff;font-weight:700;font-size:44px;letter-spacing:.12em}
+  .hl{color:var(--yellow)}
+  .tape{display:inline-block;background:var(--yellow);color:var(--navy2);font-weight:900;padding:12px 34px;transform:rotate(-3deg);font-size:52px;box-shadow:0 10px 0 rgba(0,0,0,.18)}
+  .big{font-weight:900;line-height:1.18;text-shadow:0 8px 0 rgba(0,0,0,.25)}
+  .card{background:#fff;color:var(--ink);border-radius:36px;box-shadow:0 24px 0 rgba(0,0,0,.2)}
+  .check{display:flex;align-items:center;gap:34px;padding:44px 50px;font-size:54px;font-weight:700;line-height:1.35}
+  .box{flex:0 0 96px;height:96px;border:7px solid var(--navy);border-radius:18px;position:relative}
+  .box svg{position:absolute;left:-6px;top:-30px;width:130px;height:130px}
+  .datecard{padding:38px 50px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:92px;height:92px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:58px;margin-right:26px;vertical-align:middle}
+  .date{font-weight:900;font-size:112px;color:var(--navy);letter-spacing:-.01em;vertical-align:middle}
+  .dow{font-size:62px;color:var(--red);font-weight:900;vertical-align:middle;margin-left:8px}
+  .badge{width:470px;height:470px;border-radius:50%;background:var(--yellow);color:var(--navy2);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;line-height:1.15;box-shadow:0 18px 0 rgba(0,0,0,.2)}
+  .pill{display:inline-flex;align-items:center;gap:22px;background:rgba(255,255,255,.12);border:3px solid rgba(255,255,255,.35);border-radius:999px;padding:24px 46px;font-size:50px;font-weight:700}
+  .prog{display:flex;gap:24px;align-items:baseline;font-size:42px;white-space:nowrap;font-weight:700;padding:16px 0;border-bottom:2px dashed rgba(255,255,255,.3)}
+  .prog b{color:var(--yellow);font-size:46px;flex:0 0 200px;font-weight:900}
+  .deadline{display:flex;align-items:center;justify-content:space-between;padding:34px 50px;font-weight:900}
+  .deadline .l{font-size:44px;color:var(--navy)}
+  .deadline .r{font-size:84px;color:var(--red)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- 共通背景 -->
+  <div class="ring" id="ring1" style="width:900px;height:900px;left:-380px;top:-300px"></div>
+  <div class="ring" id="ring2" style="width:700px;height:700px;right:-300px;bottom:-160px"></div>
+  <div class="dotgrid" id="dots1" style="right:-60px;top:140px"></div>
+  <div class="dotgrid" id="dots2" style="left:-80px;bottom:260px"></div>
+
+  <!-- S1: フック 0.0 - 3.4 -->
+  <div class="scene" data-in="0" data-out="3.4">
+    <div class="a center" data-in="0.15" data-anim="fade" style="top:420px"><span class="tag">中2・中3生の保護者の皆さまへ</span></div>
+    <div class="a center big" data-in="0.7" data-anim="up" style="top:690px;font-size:150px">高校選び、</div>
+    <div class="a center big" data-in="1.15" data-anim="up" style="top:880px;font-size:118px"><span class="hl">もう</span>始めて</div>
+    <div class="a center big" data-in="1.5" data-anim="up" style="top:1040px;font-size:118px">いますか？</div>
+    <div class="stripe a" data-in="1.9" data-anim="wipe" style="top:1330px"></div>
+  </div>
+
+  <!-- S2: タイトル 3.4 - 7.6 -->
+  <div class="scene" data-in="3.4" data-out="7.6">
+    <div class="a center" data-in="3.5" data-anim="fade" style="top:330px;display:flex;justify-content:center;align-items:center;gap:24px">
+      <img src="assets/logo.jpg" style="width:104px;height:90px;border-radius:12px;background:#fff">
+      <span style="font-size:46px;font-weight:700;letter-spacing:.08em">鹿児島玉龍高校 presents</span>
+    </div>
+    <div class="a center" data-in="3.8" data-anim="pop" style="top:560px"><span class="tape">今後の大学入試動向にも注目!!</span></div>
+    <div class="a center" data-in="4.3" data-anim="up" style="top:780px;font-size:66px;font-weight:900;line-height:1.4">今年度・来年度の<br>高校受験に向けた</div>
+    <div class="a center big maru" data-in="4.8" data-anim="zoom" style="top:1010px;font-size:176px;color:var(--yellow)">「進学<br>相談会」</div>
+  </div>
+
+  <!-- S3: こんな方へ 7.6 - 11.4 -->
+  <div class="scene" data-in="7.6" data-out="11.4">
+    <div class="a center" data-in="7.7" data-anim="up" style="top:330px;font-size:72px;font-weight:900;line-height:1.4">こんなことに<br><span class="hl">興味・関心</span>はありませんか？</div>
+    <div class="a card check" data-in="8.2" data-anim="left" style="left:70px;right:70px;top:700px">
+      <div class="box"><svg viewBox="0 0 130 130"><path class="ck" data-ck="8.7" d="M18 66 L52 100 L120 16" fill="none" stroke="#d7262c" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>大学入試を見据えた<br>高校選びをしたい…</div>
+    </div>
+    <div class="a card check" data-in="9.1" data-anim="right" style="left:70px;right:70px;top:1050px">
+      <div class="box"><svg viewBox="0 0 130 130"><path class="ck" data-ck="9.6" d="M18 66 L52 100 L120 16" fill="none" stroke="#d7262c" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>中高一貫教育校で<br>高校から学ぶメリットとは…</div>
+    </div>
+  </div>
+
+  <!-- S4: 学校紹介 11.4 - 14.6 -->
+  <div class="scene" data-in="11.4" data-out="14.6">
+    <div class="a" data-in="11.4" data-anim="fade" id="posterWrap" style="left:140px;top:230px;width:800px;height:1136px;border-radius:28px;overflow:hidden;box-shadow:0 30px 0 rgba(0,0,0,.25)">
+      <img id="poster" src="assets/allstars.jpg" style="width:100%;height:100%;object-fit:cover;transform-origin:50% 30%">
+    </div>
+    <div class="a center" data-in="12.0" data-anim="up" style="top:1420px;font-size:64px;font-weight:900;line-height:1.45">
+      大学入試の最新情報と<br><span class="hl">玉龍の進学指導体制</span>を<br>直接お伝えします
+    </div>
+  </div>
+
+  <!-- S5: 日時・内容 14.6 - 19.2 -->
+  <div class="scene" data-in="14.6" data-out="19.2">
+    <div class="a center" data-in="14.7" data-anim="fade" style="top:230px"><span class="tag">日時・会場</span></div>
+    <div class="a card datecard" data-in="14.95" data-anim="left" style="left:90px;right:90px;top:390px">
+      <span class="num">1</span><span class="date">11/15</span><span class="dow">(日)</span>
+    </div>
+    <div class="a card datecard" data-in="15.3" data-anim="right" style="left:90px;right:90px;top:660px">
+      <span class="num">2</span><span class="date">12/6</span><span class="dow">(日)</span>
+    </div>
+    <div class="a center" data-in="15.7" data-anim="up" style="top:950px;font-size:58px;font-weight:900">
+      11:00〜 <span style="font-size:40px;font-weight:700;opacity:.85">（受付 10:30〜）</span><br>
+      <span class="hl">本校 安田ホール</span>
+    </div>
+    <div class="a" data-in="16.2" data-anim="up" style="left:90px;right:90px;top:1150px">
+      <div class="prog"><b>11:00〜</b>これからの大学入試の情報提供</div>
+      <div class="prog"><b>11:20〜</b>学校紹介（進学指導体制など）</div>
+      <div class="prog"><b>11:40〜</b>質疑応答・個別相談</div>
+      <div style="font-size:36px;opacity:.8;margin-top:22px;text-align:center">※両日とも同じ時間・内容です</div>
+    </div>
+  </div>
+
+  <!-- S6: 参加条件 19.2 - 22.4 -->
+  <div class="scene" data-in="19.2" data-out="22.4">
+    <div class="a center" data-in="19.3" data-anim="pop" style="top:300px;display:flex;justify-content:center">
+      <div class="badge"><span style="font-size:58px">各日程</span><span style="font-size:76px">先着</span><span style="font-size:150px;line-height:1">50<span style="font-size:80px">組</span></span></div>
+    </div>
+    <div class="a center" data-in="19.9" data-anim="up" style="top:860px"><span class="pill">👨‍👩‍👧 お子様も一緒に参加OK</span></div>
+    <div class="a center" data-in="20.25" data-anim="up" style="top:1020px"><span class="pill">🚗 当日は駐車場あり</span></div>
+    <div class="a center" data-in="20.6" data-anim="fade" style="top:1190px;font-size:38px;opacity:.85">※生徒のみでのご参加はできません</div>
+  </div>
+
+  <!-- S7: 申込 22.4 - 27.0 -->
+  <div class="scene" data-in="22.4" data-out="99">
+    <div class="a center" data-in="22.5" data-anim="pop" style="top:250px"><span class="tape" style="background:var(--red);color:#fff">お申し込みはお早めに！</span></div>
+    <div class="a center" data-in="22.8" data-anim="fade" style="top:440px;font-size:52px;font-weight:900">申込締切</div>
+    <div class="a card deadline" data-in="23.0" data-anim="left" style="left:90px;right:90px;top:540px">
+      <span class="l">① 11/15(日) 分</span><span class="r">11/12(木)</span>
+    </div>
+    <div class="a card deadline" data-in="23.3" data-anim="right" style="left:90px;right:90px;top:740px">
+      <span class="l">② 12/6(日) 分</span><span class="r">12/3(木)</span>
+    </div>
+    <div class="a center" data-in="23.9" data-anim="up" style="top:1000px;font-size:54px;font-weight:900;line-height:1.55">
+      プロフィールのリンク<br>
+      <span class="hl" id="arrow">▶</span> メニュー<span class="hl">「高校入学案内」</span>から
+    </div>
+    <div class="a center" data-in="24.6" data-anim="fade" style="top:1260px;display:flex;justify-content:center;align-items:center;gap:22px">
+      <img src="assets/logo.jpg" style="width:92px;height:80px;border-radius:12px;background:#fff">
+      <div style="text-align:left">
+        <div style="font-size:52px;font-weight:900">鹿児島玉龍高等学校</div>
+        <div style="font-size:32px;opacity:.85">鹿児島市池之上町20-57</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DUR = 27.0;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const easeOut=x=>1-Math.pow(1-x,3);
+const easeBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+
+function render(t){
+  // 背景の緩やかな動き
+  document.getElementById('ring1').style.transform=`translate(${Math.sin(t*.4)*40}px,${t*6}px)`;
+  document.getElementById('ring2').style.transform=`translate(${Math.cos(t*.35)*40}px,${-t*5}px)`;
+  document.getElementById('dots1').style.transform=`translateY(${Math.sin(t*.6)*30}px)`;
+  document.getElementById('dots2').style.transform=`translateY(${Math.cos(t*.5)*30}px)`;
+
+  document.querySelectorAll('.scene').forEach(s=>{
+    const i=+s.dataset.in, o=+s.dataset.out;
+    const vis = t>=i && t<o;
+    s.style.display = vis?'block':'none';
+    if(!vis) return;
+    const outP = clamp((t-(o-0.35))/0.35);   // シーン退場
+    s.style.opacity = 1-outP;
+    s.style.transform = `translateY(${-outP*60}px)`;
+  });
+
+  document.querySelectorAll('.a').forEach(el=>{
+    const i=+el.dataset.in, anim=el.dataset.anim;
+    const p=clamp((t-i)/0.55), e=easeOut(p);
+    let tf='', op=e;
+    switch(anim){
+      case 'up':   tf=`translateY(${(1-e)*90}px)`; break;
+      case 'left': tf=`translateX(${(1-e)*-1100}px)`; op=1; break;
+      case 'right':tf=`translateX(${(1-e)*1100}px)`; op=1; break;
+      case 'pop':  tf=`scale(${p<=0?0:easeBack(p)})`; op=clamp(p*3); break;
+      case 'zoom': tf=`scale(${1.6-0.6*e})`; break;
+      case 'wipe': tf=`rotate(-8deg) scaleX(${e})`; el.style.transformOrigin='0 50%'; op=1; break;
+      default: break;
+    }
+    el.style.transform=tf; el.style.opacity=op;
+  });
+
+  document.querySelectorAll('.ck').forEach(p=>{
+    const L=170, q=easeOut(clamp((t-(+p.dataset.ck))/0.4));
+    p.style.strokeDasharray=L; p.style.strokeDashoffset=L*(1-q);
+  });
+
+  // ポスターのケンバーンズ
+  const pz=clamp((t-11.4)/3.2);
+  document.getElementById('poster').style.transform=`scale(${1.04+pz*0.12}) translateY(${pz*-20}px)`;
+  // 矢印の点滅
+  document.getElementById('arrow').style.opacity = 0.4+0.6*Math.abs(Math.sin(t*4));
+}
+window.DUR=DUR; window.render=render;
+render(0);
+// プレビュー時はリアルタイム再生（?still=1 で停止）
+if(!/still=1/.test(location.search)){
+  const st=performance.now();
+  (function loop(){render(((performance.now()-st)/1000)%DUR);requestAnimationFrame(loop)})();
+}
+</script>
+</body>
+</html>
